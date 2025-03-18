@@ -18,12 +18,16 @@ public class Product {
     private Integer ctnNo;
     @Column(name="aln_no")
     private String alnNo;
+    @Column(name="item_name")
     private String itemName;
+    @Column(name="than")
     private Integer than;
+    @Column(name="meters")
     private Double meters;
+    @Column(name="gross_wt")
     private Double grossWt;
+    @Column(name="ind_shop")
     private String indShop;
-
     @ManyToOne
     @JoinColumn(name = "client_id", nullable = false)
     private Client client;
