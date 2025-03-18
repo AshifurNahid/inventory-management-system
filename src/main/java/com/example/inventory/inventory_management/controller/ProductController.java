@@ -1,12 +1,9 @@
 package com.example.inventory.inventory_management.controller;
-
-import ch.qos.logback.core.util.StringUtil;
 import com.example.inventory.inventory_management.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
-
+import org.apache.commons.io.FilenameUtils;
 import java.io.InputStream;
 
 
@@ -23,8 +20,7 @@ public class ProductController {
         try {
             String filename = file.getOriginalFilename();
             if (filename != null) {
-                String consignmentName = StringUtils.getFilename(filename);
-
+                String consignmentName = FilenameUtils.getBaseName(filename);
                 InputStream fileInputStream = file.getInputStream();
 
                 // Pass the file input stream and consignment name to the service
